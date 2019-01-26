@@ -2,6 +2,19 @@
 
 <configuration>
 
+
+    <!--========================================================================
+    =  Mock from  frequentation.png
+    =========================================================================-->
+   <simple-event name="frequentation" provider="providerImage">
+        <query>150000</query>
+   </simple-event>
+    
+    
+
+    <!--========================================================================
+    =  
+    =========================================================================-->-
     <simple-event name="demo-simple-event" provider="dataProvider" from="-5min" scheduler="{{EVERY_MIN}}">
         <query>MOCK</query>
         <alerting name="demo-simple-event1" provider="defaultAlerting" function="org.inugami.demo.alerts.simpleAlert" />

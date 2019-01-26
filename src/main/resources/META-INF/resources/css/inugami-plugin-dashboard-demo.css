@@ -1,3 +1,11 @@
 /***************************************************************************
 * 					SPECIFIC PLUGIN CSS FILE
 ***************************************************************************/
+
+.current_frequentation-begin{
+    stop-color:#d2d2d2;
+}
+
+.current_frequentation-end{
+    stop-color: #353535;
+}
