@@ -10,20 +10,20 @@
     =========================================================================-->
     <properties>
 
-        <property key="EVERY_10_SECONDS"    value="0/10 * * * * ?" />
-        <property key="EVERY_MIN"           value="0 * * * * ?" />
-        <property key="EVERY_TWO_MIN"       value="0 0/2 * * * ?" />
-        <property key="EVERY_FIVE_MIN"      value="0 0/5 * * * ?" />
-        <property key="EVERY_TEN_MIN"       value="0 0/10 * * * ?" />
-        <property key="EVERY_HOUR"          value="0 0 * * * ?" />
-        <property key="EVERY_DAY"           value="0 0 6 * * ?" />
-     
+        <property key="EVERY_10_SECONDS" value="0/10 * * * * ?" />
+        <property key="EVERY_MIN" value="0 * * * * ?" />
+        <property key="EVERY_TWO_MIN" value="0 0/2 * * * ?" />
+        <property key="EVERY_FIVE_MIN" value="0 0/5 * * * ?" />
+        <property key="EVERY_TEN_MIN" value="0 0/10 * * * ?" />
+        <property key="EVERY_HOUR" value="0 0 * * * ?" />
+        <property key="EVERY_DAY" value="0 0 6 * * ?" />
+
 
     </properties>
 
 
     <front-properties>
-        <property key="property.for.front"   value="Hello Joe Foobar" />
+        <property key="property.for.front" value="Hello Joe Foobar" />
     </front-properties>
 
     <!--========================================================================
@@ -39,20 +39,26 @@
     =   PROVIDERS
     =========================================================================-->
     <providers>
-         <provider name="dataProvider" className="{{mockJsonProvider}}">
-             <config key="max_thread" value="20" />
-             <config key="random" value="false"/>
-             <config key="latency.enable" value="false"/>
-             <config key="latency.max.time" value="1000"/>
-         </provider>
+        <provider name="dataProvider" className="{{mockJsonProvider}}">
+            <config key="max_thread" value="20" />
+            <config key="random" value="false" />
+            <config key="latency.enable" value="false" />
+            <config key="latency.max.time" value="1000" />
+        </provider>
+
+
+        <provider name="providerImage" className="{{mockFromImage}}">
+            <config key="images.1" value="/META-INF/mock/frequentation.png" />
+        </provider>
     </providers>
+ 
 
 
     <!--========================================================================
     =   PROCESSORS
     =========================================================================-->
     <processors>
-        
+
     </processors>
       
 
@@ -61,12 +67,12 @@
     =========================================================================-->
     <alertings>
         <alerting-provider name="defaultAlerting" className="{{defaultAlertingProvider}}">
-        <config key="files">
-            <value>
-            ${project.basedir}/src/main/config/alerting/inugami-plugin-dashboard-demo.js
-            </value>
-        </config>
-             
+            <config key="files">
+                <value>
+                    ${project.basedir}/src/main/config/alerting/inugami-plugin-dashboard-demo.js
+                </value>
+            </config>
+
         </alerting-provider>
     </alertings>
 
