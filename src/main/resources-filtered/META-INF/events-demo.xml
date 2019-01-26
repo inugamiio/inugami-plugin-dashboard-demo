@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <simple-event name="demo-simple-event" provider="dataProvider" from="-5min" scheduler="{{EVERY_MIN}}">
+        <query>MOCK</query>
+        <alerting name="demo-simple-event1" provider="defaultAlerting" function="org.inugami.demo.alerts.simpleAlert" />
+    </simple-event>
+
+
+    
+    <event name="demo-multi-targets-event" provider="dataProvider">
+        <target name="demo-multi-targets-event-previous">
+            <query>MOCK</query>
+        </target>
+        <target name="demo-multi-targets-event-current" provider="dataProvider">
+            <query>MOCK</query>
+        </target>
+    </event>
+
+</configuration>
+
+
+

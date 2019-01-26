@@ -1,0 +1,22 @@
+{
+	"pluginBaseName"   : "inugami_plugin_dashboard_demo",
+	"routerModuleName" : "InugamiPluginDashboardDemoRoutes",
+	"commonsCss"       : "/css/inugami-plugin-dashboard-demo.css",
+	"module": {
+		"className" : "InugamiPluginDashboardDemoModule",
+		"file"      : "js/app/plugins/inugami_plugin_dashboard_demo/inugami.plugin.dashboard.demo.module.ts"
+	},
+	"router": [
+		{
+			"path" 		 : "home",
+			"component"  : "PluginHomeView"
+		}
+	],
+	"menuLinks": [
+		{
+			"path"       : "demo/home",
+			"title"      : "Inugami Demo plugin",
+			"styleClass" : "menulink-inugami-demo"
+		}
+	]
+}

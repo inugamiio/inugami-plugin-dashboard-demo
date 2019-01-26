@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- =======================================================================
+    = PARENT
+    ======================================================================== -->
+    <parent>
+        <groupId>org.inugami.maven.superpom</groupId>
+        <artifactId>inugami-superpom-plugin</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <!-- =======================================================================
+    = PROJECT
+    ======================================================================== -->
+    <groupId>org.inugami.plugins</groupId>
+    <artifactId>inugami-plugin-dashboard-demo</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+
+
+    <!-- =======================================================================
+    = PROPERTIES
+    ======================================================================== -->
+    <properties>
+        <super.env.dev />
+        <super.inugami.plugin />
+        <super.inugami.plugin.attach.war />
+        <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
+    </properties>
+
+
+
+    <!-- =======================================================================
+    = SCM
+    ======================================================================== -->
+    <scm>
+        <url>https://github.com/inugamiio/inugami-plugin-dashboard-demo</url>
+        <connection>git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</connection>
+        <developerConnection>git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</developerConnection>
+        <tag>v0.0.0</tag>
+    </scm>
+
+    <!-- =======================================================================
+    = DEPENDENCIES
+    ======================================================================== -->
+    <dependencies>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
