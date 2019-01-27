@@ -1,14 +1,38 @@
-Dashboard
+<bloc width="1" height="1" fontRatio="0.000006">
 
+    
+    <!--########################################################################
+    # LEFT COLUMN
+    #########################################################################-->
+    <bloc width="0.2" height="1" styleClass="left-column">
+            <bar-chart  label="Checkout"
+                        pluginName="inugami_plugin_dashboard_demo"
+                        event="services-checkout"
+                        heightRatio="0.2"
+                        widthRatio="0.9">
+            </bar-chart>
+    </bloc>
 
+    <!--########################################################################
+    # CENTER COLUMN
+    #########################################################################-->
+    <bloc width="0.6" height="1" styleClass="center-content">
+            <curve-chart widthRatio="1"
+                         heightRatio="1"
+                         resolution="300"
+                         styleClass="curve-chart-whole"
+                         zoom="2"
+                         pluginName="inugami_plugin_dashboard_demo"
+                         event="frequentation">
+            </curve-chart>
+    </bloc>
 
-<curve-chart widthRatio="0.5"
-            heightRatio="0.5"
-            resolution="300"
-            zoom="2"
-            styleClass="curve-chart-whole"
-            timeOffset="0"
-            pluginName="inugami_plugin_dashboard_demo"
-            event="frequentation"
-            startTime="0">
-</curve-chart>
+    
+    <!--########################################################################
+    # RIGHT COLUMN
+    #########################################################################-->
+    <bloc width="0.2" height="1" styleClass="right-column">
+
+    </bloc>
+    <div class="clear"></div>
+</bloc>

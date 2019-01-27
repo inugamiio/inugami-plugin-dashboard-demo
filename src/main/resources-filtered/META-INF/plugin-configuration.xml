@@ -49,6 +49,7 @@
 
         <provider name="providerImage" className="{{mockFromImage}}">
             <config key="images.1" value="/META-INF/mock/frequentation.png" />
+            <config key="images.2" value="/META-INF/mock/services-checkout.png" />
         </provider>
     </providers>
  
@@ -58,11 +59,13 @@
     =   PROCESSORS
     =========================================================================-->
     <processors>
-
+        <processor name="servicesBucketsProcessor" className="{{graphiteBucketProcessor}}">
+            <config key="timeSlotSize" value="600" />
+        </processor>
     </processors>
       
 
-    <!--========================================================================
+    <!--========================================================================s
     =   ALERTING
     =========================================================================-->
     <alertings>

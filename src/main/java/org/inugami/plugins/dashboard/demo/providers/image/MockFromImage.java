@@ -50,13 +50,15 @@ public class MockFromImage implements Provider {
     // =========================================================================
     // ATTRIBUTES
     // =========================================================================
-    private static final String             DEFAULT_PATH_PREFIX = "/META-INF/mock/";
+    private static final String                 DEFAULT_PATH_PREFIX = "/META-INF/mock/";
     
-    private final String                    name;
+    private final String                        name;
     
-    private final MockJsonHelper            mockJsonHelper      = new MockJsonHelper();
+    private final MockJsonHelper                mockJsonHelper      = new MockJsonHelper();
     
-    private final Map<String, List<Double>> MOCK                = new HashMap<>();
+    private final Map<String, List<Double>>     MOCK                = new HashMap<>();
+    
+    private final ConfigHandler<String, String> config;
     
     // =========================================================================
     // CONSTRUCTORS
@@ -70,10 +72,13 @@ public class MockFromImage implements Provider {
         for (final String path : imagesPath) {
             initializeMockImage(config.applyProperties(path));
         }
+        
+        this.config = config;
     }
     
     protected MockFromImage() {
         name = null;
+        config = null;
     }
     
     // =========================================================================
@@ -130,24 +135,30 @@ public class MockFromImage implements Provider {
         ProviderFutureResult futureResult = null;
         if (data != null) {
             final Calendar now = CalendarTools.buildCalendarByMin();
-            final Calendar startDay = CalendarTools.buildCalendarByMin();
-            startDay.set(Calendar.HOUR_OF_DAY, 0);
-            startDay.set(Calendar.MINUTE, 0);
+            final Calendar startDay = buildStartDay();
+            final Calendar startTime = buildStartTime(event.getFrom().orElse(null));
             
             final int dataSize = data.size();
-            final int diff = (int) ((now.getTimeInMillis() - startDay.getTimeInMillis()) / 60000);
+            int timeOffset = convertToMinute(startTime.getTimeInMillis() - startDay.getTimeInMillis());
+            if (timeOffset < 0) {
+                timeOffset = 0;
+            }
+            final int diff = convertToMinute(now.getTimeInMillis() - startDay.getTimeInMillis());
             
             final GraphiteTarget target = new GraphiteTarget();
             target.setTarget(event.getName());
             
-            for (int i = 0; i < diff; i++) {
+            for (int i = 0; i < (diff + timeOffset); i++) {
                 int cursor = i;
-                if (cursor > dataSize) {
+                if (cursor >= dataSize) {
                     cursor = 0;
                 }
                 
                 startDay.add(Calendar.MINUTE, 1);
-                target.addDatapoint(data.get(cursor), startDay.getTimeInMillis() / 1000);
+                if (i >= timeOffset) {
+                    target.addDatapoint(data.get(cursor), startDay.getTimeInMillis() / 1000);
+                }
+                
             }
             
             final ProviderFutureResultBuilder futureResultBuilder = new ProviderFutureResultBuilder();
@@ -163,6 +174,36 @@ public class MockFromImage implements Provider {
     @Override
     public ProviderFutureResult aggregate(final List<ProviderFutureResult> data) throws ProviderException {
         return mockJsonHelper.aggregate(data);
+    }
+    
+    // =========================================================================
+    // TOOLS
+    // =========================================================================
+    
+    private Calendar buildStartTime(final String from) {
+        
+        final Calendar calendar = CalendarTools.buildCalendarByMin();
+        if ((from == null) || (config == null)) {
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+        }
+        else {
+            final String timestamp = config.applyProperties(from);
+            calendar.setTimeInMillis(Long.parseLong(timestamp) * 1000);
+        }
+        
+        return calendar;
+    }
+    
+    private Calendar buildStartDay() {
+        final Calendar calendar = CalendarTools.buildCalendarByMin();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        return calendar;
+    }
+    
+    private int convertToMinute(final long timestamp) {
+        return (int) (timestamp / 60000);
     }
     
     // =========================================================================

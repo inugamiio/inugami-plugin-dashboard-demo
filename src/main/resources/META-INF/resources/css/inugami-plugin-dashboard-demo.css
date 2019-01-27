@@ -2,10 +2,54 @@
 * 					SPECIFIC PLUGIN CSS FILE
 ***************************************************************************/
 
+
+
+/***************************************************************************
+* 					LAYOUT
+***************************************************************************/
+.inugami.demo.dashboard .dashboard {
+    margin-top: 0em;
+}
+.inugami.demo.dashboard .left-column,
+.inugami.demo.dashboard .center-content{
+    float: left;
+}
+
+.inugami.demo.dashboard .right-column{
+    float: right;
+    border : 1px solid red;
+}
+
+.inugami.demo.dashboard .right-column .bar-chart{
+    margin-top: 1em;
+}
+
+
+.inugami.demo.dashboard .left-column{
+    border : 1px solid green;
+}
+.inugami.demo.dashboard .center-content{
+    float: left;
+    border : 1px solid blue;
+}
+
+
+/***************************************************************************
+* 					OVERRIDE COMPONENTS
+***************************************************************************/
 .current_frequentation-begin{
-    stop-color:#d2d2d2;
+    stop-color:#6b6b6b;
 }
 
 .current_frequentation-end{
-    stop-color: #353535;
+    stop-color: #ffffff;
+}
+
+
+.inugami.demo.dashboard  .bar-chart .label .background{
+    fill: #a9a9a9;
+}
+
+.inugami.demo.dashboard  .bar-chart .masks .mask{
+    fill: #ffffff;
 }
