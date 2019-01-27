@@ -161,8 +161,8 @@ public class MockFromImage implements Provider {
     }
     
     @Override
-    public ProviderFutureResult aggregate(final List<ProviderFutureResult> datas) throws ProviderException {
-        return mockJsonHelper.aggregate(datas);
+    public ProviderFutureResult aggregate(final List<ProviderFutureResult> data) throws ProviderException {
+        return mockJsonHelper.aggregate(data);
     }
     
     // =========================================================================
