@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.inugami.maven.superpom</groupId>
         <artifactId>inugami-superpom-plugin</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <!-- =======================================================================
@@ -38,11 +38,49 @@
     ======================================================================== -->
     <scm>
         <url>https://github.com/inugamiio/inugami-plugin-dashboard-demo</url>
-        <connection>git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</connection>
-        <developerConnection>git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</developerConnection>
+        <connection>scm:git:git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</connection>
+        <developerConnection>scm:git:git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</developerConnection>
         <tag>v0.0.0</tag>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>inugami-release</id>
+            <name>inugami-release</name>
+            <url>http://inugami.io/artifactory/inugami-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>inugami-snapshot</id>
+            <name>inugami-snapshot</name>
+            <url>http://inugami.io/artifactory/inugami-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <!-- =======================================================================
+    = REPOSITORIES
+    ======================================================================== -->
+    <repositories>
+        <repository>
+            <id>inugami-release</id>
+            <name>inugami-release</name>
+            <url>http://inugami.io/artifactory/inugami-release</url>
+        </repository>
+        <repository>
+            <id>inugami-snapshot</id>
+            <name>inugami-snapshot</name>
+            <url>http://inugami.io/artifactory/inugami-snapshot</url>
+        </repository>
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>inugami-release</id>
+            <name>inugami-release</name>
+            <url>http://inugami.io/artifactory/inugami-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+    
     <!-- =======================================================================
     = DEPENDENCIES
     ======================================================================== -->
