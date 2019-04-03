@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.inugami.maven.superpom</groupId>
         <artifactId>inugami-superpom-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <!-- =======================================================================
@@ -29,6 +29,9 @@
         <super.inugami.plugin />
         <super.inugami.plugin.attach.war />
         <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
+        <!-- specify in your maven settings.xml inugami server path :
+        <super.inugami.server.home>/home/user/servers/inugami</super.inugami.server.home>
+        -->
     </properties>
 
 
@@ -72,7 +75,7 @@
             <url>http://inugami.io/artifactory/inugami-snapshot</url>
         </repository>
     </repositories>
-    
+
     <pluginRepositories>
         <pluginRepository>
             <id>inugami-release</id>
@@ -99,5 +102,7 @@
         </dependency>
 
     </dependencies>
+
+
 
 </project>
