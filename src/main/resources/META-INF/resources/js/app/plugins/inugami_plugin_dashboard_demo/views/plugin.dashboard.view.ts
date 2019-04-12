@@ -49,6 +49,9 @@ export class PluginDashboardView implements OnInit{
 
   }
 
+  public showMenu(){
+    this.sessionScope.toggleMainMenu();
+  }
 
   private onAlerts(alert : any){
     console.log(alert);
