@@ -29,6 +29,7 @@
         <super.inugami.plugin />
         <super.inugami.plugin.attach.war />
         <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
+        <super.inugami.version>1.0.1-SNAPSHOT</super.inugami.version>
         <!-- specify in your maven settings.xml inugami server path :
         <super.inugami.server.home>/home/user/servers/inugami</super.inugami.server.home>
         -->

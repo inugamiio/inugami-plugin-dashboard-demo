@@ -1,38 +1,69 @@
 <bloc width="1" height="1" fontRatio="0.000006">
+    <section>
+        <!--########################################################################
+        # LEFT COLUMN
+        #########################################################################-->
+        <header>
+                <nav>
+                        <ul>
+                                <li (click)="showMenu()">Demo Plugin</li>
+                                <div class="clear"></div>
+                        </ul>
+                </nav>
+        </header>
 
-    
-    <!--########################################################################
-    # LEFT COLUMN
-    #########################################################################-->
-    <bloc width="0.2" height="1" styleClass="left-column">
-            <bar-chart  label="Checkout"
-                        pluginName="inugami_plugin_dashboard_demo"
-                        event="services-checkout"
-                        heightRatio="0.2"
-                        widthRatio="0.9">
-            </bar-chart>
-    </bloc>
+        <div class="demo-content">
+                <!--########################################################################
+                # LEFT COLUMN
+                #########################################################################-->
+                <bloc width="0.2" height="0.8" styleClass="left-column">
+                
+                        <bar-chart  label="Checkout"
+                                        pluginName="inugami_plugin_dashboard_demo"
+                                        event="services-checkout"
+                                        heightRatio="0.2"
+                                        widthRatio="0.5">
+                        </bar-chart>
+        
+                </bloc>
+        
+        
 
-    <!--########################################################################
-    # CENTER COLUMN
-    #########################################################################-->
-    <bloc width="0.6" height="1" styleClass="center-content">
-            <curve-chart widthRatio="1"
-                         heightRatio="1"
-                         resolution="300"
-                         styleClass="curve-chart-whole"
-                         zoom="2"
-                         pluginName="inugami_plugin_dashboard_demo"
-                         event="frequentation">
-            </curve-chart>
-    </bloc>
+        
+                    
+                <!--########################################################################
+                # RIGHT COLUMN
+                #########################################################################-->
+                <bloc width="0.2" height="0.8" styleClass="right-column">
+                        <bloc width="0.8" height="0.3" >
+                        <curve-chart    widthRatio="1"
+                                        heightRatio="1"
+                                        resolution="300"
+                                        styleClass="curve-chart-whole"
+                                        zoom="2"
+                                        pluginName="inugami_plugin_dashboard_demo"
+                                        event="frequentation">
+                        </curve-chart>
+                        </bloc>
+                </bloc>
 
-    
-    <!--########################################################################
-    # RIGHT COLUMN
-    #########################################################################-->
-    <bloc width="0.2" height="1" styleClass="right-column">
+                <!--########################################################################
+                # CENTER COLUMN
+                #########################################################################-->
+                <bloc width="0.6" height="0.85" styleClass="center-content">
+        
+        
+                </bloc>
+        </div>
+        
 
-    </bloc>
-    <div class="clear"></div>
+        <!--########################################################################
+        # FOOTER
+        #########################################################################-->
+        <footer>
+
+
+        </footer>
+        <div class="clear"></div>
+    </section>
 </bloc>
