@@ -52,7 +52,23 @@
                 #########################################################################-->
                 <bloc width="0.6" height="0.85" styleClass="center-content">
         
-        
+                        <i-svg-generic-map [styleClass]="mapStyleClass"
+                                           src="images/health_map.svg"
+                                           pluginName="inugami_plugin_dashboard_demo"
+                                           event="health-check"
+                                           [handler]="svgMapHandler"
+                                           width="1"
+                                           height="0.7">
+                        </i-svg-generic-map>
+                        
+                        <div>
+                                <button  type="button" class="btn btn-danger" (click)="simulateError()">Generate error</button>
+                                <button  type="button" class="btn btn-success" (click)="simulateRollbackError()">Rollback error</button>
+                        </div>
+                        <div>
+                                <textarea class="test-text-area" [(ngModel)]="jsonQuery"></textarea>
+                        </div>
+                        
                 </bloc>
         </div>
         
