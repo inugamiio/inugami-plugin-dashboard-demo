@@ -8,7 +8,8 @@ import {PluginsService}                               from 'js/app/services/plug
 import {CurveChart}                                   from 'js/app/components/charts/curve_chart/curve.chart.ts';
 import {Bloc}                                         from 'js/app/components/display/bloc/bloc.ts';
 import {SvgGenericMap}                                from 'js/app/components/charts/svg_generic_map/svg.generic.map.ts';
-import {SvgGenericMapEventIncomming}                  from 'js/app/components/charts/svg_generic_map/sgv.generic.map.event.incomming.ts';
+import {SvgGenericMapEventIncomming}                  from 'js/app/components/charts/svg_generic_map/svg.generic.map.event.incomming.ts';
+import {SvgGenericMapMouseEvent}                      from 'js/app/components/charts/svg_generic_map/svg.generic.map.mouse.event';
 // SERVICES --------------------------------------------------------------------
 @Component({
     templateUrl: 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view.html',
@@ -33,6 +34,118 @@ export class PluginDashboardView implements OnInit{
     "brett_instance-4" : ['path.hap-TO-brett-instance-4']
 
   };
+
+  private bddInformationsBinding : any = {
+    "apache":{
+      "serverName":"apache",
+      "type":"Httpd",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 80}
+      ]
+    },
+    "hap1":{
+      "serverName":"Hap 1",
+      "type":"load balancer",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 45001}
+      ]
+    },
+    "hap2":{
+      "serverName":"Hap 2",
+      "type":"load balancer",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 55001}
+      ]
+    },
+    "indica":{
+      "serverName":"indica",
+      "type":"application server",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 4,
+      "instance" : [
+        {"port": 21001},
+        {"port": 21002},
+        {"port": 31001},
+        {"port": 31002}
+      ]
+    },
+    "velvet":{
+      "serverName":"indica",
+      "type":"application server",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 4,
+      "instance" : [
+        {"port": 61001},
+        {"port": 61002},
+        {"port": 66001},
+        {"port": 66002}
+      ]
+    },
+    "brett":{
+      "serverName":"brett",
+      "type":"application server",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 4,
+      "instance" : [
+        {"port": 22001},
+        {"port": 22002},
+        {"port": 22301},
+        {"port": 22302}
+      ]
+    },
+    "galibier":{
+      "serverName":"galibier",
+      "type":"application server",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 99001}
+      ]
+    },
+    "fogcutter":{
+      "serverName":"fogcutter",
+      "type":"application server",
+      "dmz" : "DMZ-1",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 79001}
+      ]
+    },
+    "neo4j":{
+      "serverName":"neo4j",
+      "type":"database",
+      "dmz" : "DMZ-2",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 5401}
+      ]
+    },
+    "els":{
+      "serverName":"els",
+      "type":"database",
+      "dmz" : "DMZ-2",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 5601}
+      ]
+    },
+    "mainframe":{
+      "serverName":"mainframe",
+      "type":"Mainframe",
+      "dmz" : "DMZ-3",
+      "nbInstances" : 1,
+      "instance" : [
+        {"port": 666}
+      ]
+    }
+  }
+  public selectedElement : any = null;
 
   /**************************************************************************
   * CONSTRUCTORS
@@ -184,4 +297,20 @@ export class PluginDashboardView implements OnInit{
       }
     }
   }
+
+
+  /**************************************************************************
+  * SVG GENERIC MAP CONTROL EVENT
+  **************************************************************************/
+ public healthOnClick(event:SvgGenericMapMouseEvent){
+    if(isNotNull(event.node)){
+      let attribute = event.node.attributes['data-id'];
+      if(isNotNull(attribute)){
+        let content = this.bddInformationsBinding[attribute.value];
+        if(isNotNull(content)){
+          this.selectedElement = content;
+        }
+      }
+    }
+ }
 }

@@ -45,6 +45,33 @@
                                         event="frequentation">
                         </curve-chart>
                         </bloc>
+
+                        <div *ngIf="selectedElement">
+                                <h3>Informations</h3>
+                                <dl>
+                                        <dt>Server name</dt>
+                                        <dd>{{selectedElement.serverName}}</dd>
+
+                                        <dt>Type</dt>
+                                        <dd>{{selectedElement.type}}</dd>
+
+                                        <dt>DMZ</dt>
+                                        <dd>{{selectedElement.dmz}}</dd>
+
+                                        <dt>Number of instances</dt>
+                                        <dd>{{selectedElement.nbInstances}}</dd>
+
+                                        <dt>instances ports</dt>
+                                        <dd>
+                                                <ul>
+                                                        <li *ngFor="let instance of selectedElement.instance;">
+                                                                {{instance.port}}
+                                                        </li>
+                                                
+                                                </ul>
+                                        </dd>
+                                </dl>
+                        </div>
                 </bloc>
 
                 <!--########################################################################
@@ -57,6 +84,7 @@
                                            pluginName="inugami_plugin_dashboard_demo"
                                            event="health-check"
                                            [handler]="svgMapHandler"
+                                           (click)="healthOnClick($event)"
                                            width="1"
                                            height="0.7">
                         </i-svg-generic-map>
