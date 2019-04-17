@@ -27,7 +27,7 @@
 
 
     
-    <event name="demo-multi-targets-event" provider="dataProvider">
+    <event name="demo-multi-targets-event" provider="dataProvider" scheduler="{{EVERY_MIN}}">
         <target name="demo-multi-targets-event-previous">
             <query>MOCK</query>
         </target>
