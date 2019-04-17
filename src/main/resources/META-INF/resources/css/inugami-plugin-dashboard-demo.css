@@ -2,7 +2,11 @@
 * 					SPECIFIC PLUGIN CSS FILE
 ***************************************************************************/
 
-
+.test-text-area{
+   width: 50%;
+   border:1px solid;
+   height: 15em;
+}
 
 /***************************************************************************
 * 					LAYOUT
@@ -100,3 +104,134 @@
 }
 
 
+
+/***************************************************************************
+* 					 COMPONENTS
+***************************************************************************/
+.inugami.demo.dashboard  .health-map{
+    width: 90%;
+    margin-top: 6em;
+    margin-left: 4em;
+}
+
+
+.health-check  .top-border,
+.health-check .light-border
+.health-check .shadow-border{
+   -webkit-transition: fill 2s; 
+   transition: fill 1s;
+}
+
+
+.health-check .instance.error .top-border,
+.health-check .instance.error .top-border{
+   animation: topBorderAnimation 2s infinite;
+}
+.health-check .instance.error .light-border,
+.health-check .instance.error .light-border{
+   animation: lightBorderAnimation 2s infinite;
+}
+.health-check .instance.error .shadow-border,
+.health-check .instance.error .shadow-border{
+   animation: shadowBorderAnimation 2s infinite;
+}
+.health-check .instance.error .label{
+   animation: labelAnimation 2s infinite;
+}
+
+@keyframes topBorderAnimation {
+   0% {
+      fill : #df7f7f;
+      stroke: #666666;
+   }
+   50%{
+      fill : #ff5454;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #df7f7f;
+      stroke: #666666;
+   }
+ }
+
+ @keyframes lightBorderAnimation {
+   0% {
+      fill : #ff7a7a;
+      stroke: #666666;
+   }
+   50%{
+      fill : #fc3c3c;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #ff7a7a;
+      stroke: #666666;
+   }
+ }
+
+ @keyframes shadowBorderAnimation {
+   0% {
+      fill : #7d3434;
+      stroke: #666666;
+   }
+   50%{
+      fill : #b63030;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #7d3434;
+      stroke: #666666;
+   }
+ }
+
+
+ @keyframes labelAnimation {
+   0% {
+      fill : #303030;
+   }
+   50%{
+      fill : #ffffff;
+   }
+   100% {
+      fill : #303030;
+   }
+ }
+
+ .glow-effet{
+   opacity:0;
+   filter:url(#glowFilterFX);
+ }
+
+ .health-check .error .glow-effet{
+   animation: glowAnimation 2s infinite;
+   fill:#ef2929;
+ }
+
+
+
+ @keyframes glowAnimation {
+   0% {
+      opacity:0.1;
+   }
+   50%{
+      opacity:0.6;
+   }
+   100% {
+      opacity:0.1;
+   }
+ }
+
+ .i-svg-generic-map .path-connector.error{
+   stroke: #ff0000;
+   stroke-dasharray: 100;
+   animation: dash  linear 1s infinite;
+ }
+
+ @keyframes dash {
+   0% {
+     stroke-dashoffset: 100;
+   }
+   100% {
+      stroke-dashoffset: 0;
+   }
+ }
