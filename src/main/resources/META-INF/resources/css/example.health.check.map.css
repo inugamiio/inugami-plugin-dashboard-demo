@@ -1,0 +1,271 @@
+
+
+/***************************************************
+MOBILE
+***************************************************/
+.mobile.bdd .top-border,
+.mobile.bdd .top,
+.mobile.virtual-bdd .top,
+.mobile.virtual-bdd .top-border{
+  fill:#759ccf;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.mobile.bdd .shadow-border,
+.mobile.bdd .shadow,
+.mobile.virtual-bdd .shadow,
+.mobile.virtual-bdd .shadow-border{
+  fill:#204a87;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.mobile.bdd .light-border,
+.mobile.bdd .light,
+.mobile.virtual-bdd .light,
+.mobile.virtual-bdd .light-border{
+  fill:#9dccfe;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.mobile.bdd .label,
+.mobile.virtual-bdd .label{
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 0.3;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+/***************************************************
+WEB
+***************************************************/
+.web.bdd .top-border,
+.web.bdd .top,
+.web.virtual-bdd .top,
+.web.virtual-bdd .top-border{
+  fill: #a6d47a;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.web.bdd .shadow-border,
+.web.bdd .shadow,
+.web.virtual-bdd .shadow,
+.web.virtual-bdd .shadow-border{
+  fill: #3a6412;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.web.bdd .light-border,
+.web.bdd .light,
+.web.virtual-bdd .light,
+.web.virtual-bdd .light-border{
+  fill: #86b16a;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.web.bdd .label,
+.web.virtual-bdd .label{
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 0.3;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+/***************************************************
+SNCF
+***************************************************/
+.sncf.bdd .top-border,
+.sncf.bdd .top,
+.sncf.virtual-bdd .top,
+.sncf.virtual-bdd .top-border{
+  fill: #9364a1;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.sncf.bdd .shadow-border,
+.sncf.bdd .shadow,
+.sncf.virtual-bdd .shadow,
+.sncf.virtual-bdd .shadow-border{
+  fill: #7e4b8b;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.sncf.bdd .light-border,
+.sncf.bdd .light,
+.sncf.virtual-bdd .light,
+.sncf.virtual-bdd .light-border{
+  fill: #dfb0ec;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.sncf.bdd  .top-in-compo-border,
+.sncf.bdd  .top-in-compo{
+  fill: #694771;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+.sncf.bdd .label,
+.sncf.virtual-bdd .label{
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 0.3;
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+/**********************************
+DOMAINES
+**********************************/
+.mobile.domain .top-border,
+.mobile.domain .top{
+  fill:#aab5c4;
+}
+
+.mobile.domain .shadow-border,
+.mobile.domain .shadow{
+  fill:#595f68
+}
+.mobile.domain .light-border,
+.mobile.domain .light{
+  fill:#c1c9d4
+}
+
+
+
+.web.domain .top-border,
+.web.domain .top{
+  fill:#b6c5a8;
+}
+
+.web.domain .shadow-border,
+.web.domain .shadow{
+  fill:#707769;
+}
+.web.domain .light-border,
+.web.domain .light{
+  fill:#dbddd8;
+}
+
+
+.sncf.domain .top-border,
+.sncf.domain .top{
+  fill:#b2a3b6;
+}
+
+.sncf.domain .shadow-border,
+.sncf.domain .shadow{
+  fill:#564e58;
+}
+.sncf.domain .light-border,
+.sncf.domain .light{
+  fill:#e5d6e9;
+}
+
+
+
+
+
+/**********************************
+ON OVER
+**********************************/
+.mobile.bdd.on-over .top-border,
+.mobile.bdd.on-over .top{
+  fill:#398fff;
+}
+
+.mobile.bdd.on-over .shadow-border,
+.mobile.bdd.on-over .shadow{
+  fill: #0058d8;
+}
+
+.mobile.bdd.on-over .light-border,
+.mobile.bdd.on-over .light{
+  fill:#7cbaff;
+}
+
+
+.web.bdd.on-over .top-border,
+.web.bdd.on-over .top{
+  fill:#7be318;
+}
+
+.web.bdd.on-over .shadow-border,
+.web.bdd.on-over .shadow{
+  fill: #4f9f03;
+}
+
+.web.bdd.on-over .light-border,
+.web.bdd.on-over .light{
+  fill:#b4e08a;
+}
+
+
+.sncf.bdd.on-over .top-border,
+.sncf.bdd.on-over .top{
+  fill:#904CA2;
+}
+
+.sncf.bdd.on-over .shadow-border,
+.sncf.bdd.on-over .shadow{
+  fill: #4D105C;
+}
+
+.sncf.bdd.on-over .light-border,
+.sncf.bdd.on-over .light{
+  fill:#C467DB;
+}
+
+.sncf.bdd.on-over  .top-in-compo-border,
+.sncf.bdd.on-over  .top-in-compo{
+  fill:#45294D;
+}
