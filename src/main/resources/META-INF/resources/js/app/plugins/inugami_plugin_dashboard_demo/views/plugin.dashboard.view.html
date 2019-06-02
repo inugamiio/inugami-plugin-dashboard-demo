@@ -1,17 +1,8 @@
-<bloc width="1" height="1" fontRatio="0.000006">
+<bloc width="1" height="1" fontRatio="0.000006" styleClass="demo-dashboard">
     <section>
         <!--########################################################################
         # LEFT COLUMN
         #########################################################################-->
-        <header>
-                <nav>
-                        <ul>
-                                <li (click)="showMenu()">Demo Plugin</li>
-                                <div class="clear"></div>
-                        </ul>
-                </nav>
-        </header>
-
         <div class="demo-content">
                 <!--########################################################################
                 # LEFT COLUMN
@@ -80,7 +71,7 @@
                 <bloc width="0.6" height="0.85" styleClass="center-content">
         
                         <i-svg-generic-map [styleClass]="mapStyleClass"
-                                           src="images/health_map.svg"
+                                           [src]="svgMap"
                                            pluginName="inugami_plugin_dashboard_demo"
                                            event="health-check"
                                            [handler]="svgMapHandler"

@@ -1,0 +1,182 @@
+/***************************************************
+GENERIC
+***************************************************/
+.health-check  .top-border,
+.health-check .light-border
+.health-check .shadow-border{
+   -webkit-transition: fill 2s; 
+   transition: fill 1s;
+}
+
+
+.i-svg-generic-map .health-check .top-border{
+   fill: #868686;
+}
+.i-svg-generic-map .top-border{
+   fill: #dddddd;
+}
+
+
+.bdd,
+.virtual-bdd{
+  -webkit-transition: fill 0.25s linear;
+  -moz-transition: fill 0.25s linear;
+  -ms-transition: fill 0.25s linear;
+  -o-transition: fill 0.25s linear;
+  transition:  fill 0.25s linear;
+}
+
+
+
+.health-check .error .top,
+.health-check .error .top-border{
+   animation: topBorderAnimation 2s infinite;
+}
+.health-check .error .light,
+.health-check .error .light-border{
+   animation: lightBorderAnimation 2s infinite;
+}
+.health-check .error .shadow,
+.health-check .error .shadow-border{
+   animation: shadowBorderAnimation 2s infinite;
+}
+.health-check .error .label{
+   animation: labelAnimation 2s infinite;
+}
+
+@keyframes topBorderAnimation {
+   0% {
+      fill : #df7f7f;
+      stroke: #666666;
+   }
+   50%{
+      fill : #ff5454;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #df7f7f;
+      stroke: #666666;
+   }
+ }
+
+ @keyframes lightBorderAnimation {
+   0% {
+      fill : #ff7a7a;
+      stroke: #666666;
+   }
+   50%{
+      fill : #fc3c3c;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #ff7a7a;
+      stroke: #666666;
+   }
+ }
+
+ @keyframes shadowBorderAnimation {
+   0% {
+      fill : #7d3434;
+      stroke: #666666;
+   }
+   50%{
+      fill : #b63030;
+      stroke: #dd0000;
+   }
+   100% {
+      fill : #7d3434;
+      stroke: #666666;
+   }
+ }
+
+
+ @keyframes labelAnimation {
+   0% {
+      fill : #303030;
+   }
+   50%{
+      fill : #ffffff;
+   }
+   100% {
+      fill : #303030;
+   }
+ }
+
+ .glow-effet{
+   opacity:0;
+   filter:url(#glowFilterFX);
+ }
+
+ .health-check .error .glow-effet{
+   animation: glowAnimation 2s infinite;
+   fill:#ef2929;
+ }
+
+
+
+ @keyframes glowAnimation {
+   0% {
+      opacity:0.1;
+   }
+   50%{
+      opacity:0.6;
+   }
+   100% {
+      opacity:0.1;
+   }
+ }
+
+
+
+
+/**********************************
+STATES
+**********************************/
+.i-svg-generic-map .path-connector.error,
+.path-connector-shape.connectors-states.error .path-connector{
+  stroke: #ff0000;
+  stroke-dasharray: 10%;
+  animation: dash  linear 1s infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 10%;
+  }
+  100% {
+     stroke-dashoffset: 0;
+  }
+}
+
+.i-svg-generic-map .path-connector.big.error,
+.path-connector-shape.connectors-states.big.error .path-connector{
+  stroke-dasharray: 100%;
+  animation: dashBig  linear 2s infinite;
+}
+
+@keyframes dashBig {
+  0% {
+    stroke-dashoffset: 100%;
+  }
+  100% {
+     stroke-dashoffset: 0;
+  }
+}
+
+.path-connector-shape.connectors-states.error .path-connector-arrow{
+  stroke: #ff0000;
+  fill:#ff0000;
+  opacity: 1;
+  animation:arrowAnimation ease-in 1s infinite;
+}
+.path-connector-shape.connectors-states.big.error .path-connector-arrow{
+  animation:arrowAnimation ease-in 2s infinite;
+}
+@keyframes arrowAnimation {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

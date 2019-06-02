@@ -10,12 +10,18 @@ import {Bloc}                                         from 'js/app/components/di
 import {SvgGenericMap}                                from 'js/app/components/charts/svg_generic_map/svg.generic.map.ts';
 import {SvgGenericMapEventIncomming}                  from 'js/app/components/charts/svg_generic_map/svg.generic.map.event.incomming.ts';
 import {SvgGenericMapMouseEvent}                      from 'js/app/components/charts/svg_generic_map/svg.generic.map.mouse.event';
+
 // SERVICES --------------------------------------------------------------------
+import {HealthCheckHandlerService}                    from 'js/app/plugins/inugami_plugin_dashboard_demo/services/health.check.handler.service.ts';
+import {MainMenuService}                              from 'js/app/components/main_menu/main.menu.service';
+import {MainMenuLink}                                 from 'js/app/components/main_menu/main.menu.link';
+
 @Component({
     templateUrl: 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view.html',
     directives : [
       CurveChart,Bloc,SvgGenericMap
-    ]
+    ],
+    providers   : [HealthCheckHandlerService]  
 })
 export class PluginDashboardView implements OnInit{
   /**************************************************************************
@@ -26,14 +32,9 @@ export class PluginDashboardView implements OnInit{
   private svgMapHandler : any;
 
   public jsonQuery      : string;
-
-  public connectors     : any = {
-    "brett_instance-1" : ['path.hap-TO-brett-instance-1'],
-    "brett_instance-2" : ['path.hap-TO-brett-instance-2'],
-    "brett_instance-3" : ['path.hap-TO-brett-instance-3'],
-    "brett_instance-4" : ['path.hap-TO-brett-instance-4']
-
-  };
+  //public svgMap         : string = 'images/health_map.svg';
+  public svgMap         : string = 'images/prep.svg';
+  
 
   private bddInformationsBinding : any = {
     "apache":{
@@ -153,14 +154,16 @@ export class PluginDashboardView implements OnInit{
   constructor(private route               : ActivatedRoute,
               private router              : Router,
               private pluginsService      : PluginsService,
-              private sessionScope        : SessionScope){
+              private sessionScope        : SessionScope,
+              private healthCheckHandler  : HealthCheckHandlerService,
+              private mainMenuService  : MainMenuService){
 
       let self = this;
       org.inugami.events.addEventListener(org.inugami.sse.events.OPEN_OR_ALREADY_OPEN, function(event) {
         self.pluginsService.callPluginEventsProcessingBaseName("inugami_plugin_dashboard_demo");
         org.inugami.events.updateResize();
       });
-      this.sessionScope.closeMainMenu();
+      
 
       let buffer = [];
       buffer.push('[');
@@ -174,8 +177,8 @@ export class PluginDashboardView implements OnInit{
       
 
       this.jsonQuery = buffer.join('\n');
-
-      this.svgMapHandler = function(data){self.svgMapOnDataIncomming(data)};
+      this.healthCheckHandler.initializeData();
+      this.svgMapHandler = function(data){self.healthCheckHandler.handlingIncommingData(data)};
   }
 
   ngOnInit() {
@@ -184,18 +187,23 @@ export class PluginDashboardView implements OnInit{
       
       org.inugami.sse.register("inugami_plugin_dashboard_demo",
                                   (eventFilter)=>{return  true },
-                                  (eventAlerts)=>{self.onAlerts(eventAlerts)});  
+                                  (eventAlerts)=>{self.onAlerts(eventAlerts)}); 
+      
+      this.sessionScope.openMainMenu();
+      this.mainMenuService.cleanLinks();
+      this.mainMenuService.setCurrentTitle("Demo plugin");
+      this.mainMenuService.addSubLink(new MainMenuLink("Administration", "/admin","admin",true,'admin'));
+      this.mainMenuService.addSubLink(new MainMenuLink("Plugin home", "/demo","plugin"));
+      this.mainMenuService.updateMenu();
     });
+              
+
 
   }
 
 
-
-
-
-
   public showMenu(){
-    this.sessionScope.toggleMainMenu();
+    
   }
 
   private onAlerts(alert : any){
@@ -203,7 +211,7 @@ export class PluginDashboardView implements OnInit{
   }
   
   /**************************************************************************
-  * SVG GENERIC MAP CONTROL
+  * ACTION HANDLERS 
   **************************************************************************/
   public simulateError(){
     org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",
@@ -215,93 +223,7 @@ export class PluginDashboardView implements OnInit{
     org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check");
   }
 
-  private svgMapOnDataIncomming(data:SvgGenericMapEventIncomming){
-    if(isNotNull(data.previousEvent) && isNotNull(data.previousEvent.data) && isNotNull(data.previousEvent.data.values)){
-      this.reInitializePreviousNodes(data.rootNode,data.previousEvent.data.values);
-    }
 
-    if(isNotNull(data.event) && isNotNull(data.event.data) && isNotNull(data.event.data.values)){
-      this.changeNodesStates(data.rootNode,data.event.data.values);
-    }
-  }
-
-
-  private reInitializePreviousNodes(rootNode:any, data:any){
-    for(let asset of data){
-      for(let instanceState of asset.instances){
-         this.reInitializeInstanceState(rootNode,asset.hostname,instanceState);
-         
-      }
-    }
-
-    let selectedConnectors =rootNode.selectAll('path.connectors-states');
-    if(isNotNull(selectedConnectors)){
-      for(let i=0;i<selectedConnectors._groups[0].length; i++){
-        let currentNode = selectedConnectors._groups[0][i];
-        let pathSelected = rootNode.selectAll('#'+currentNode.id);
-        if(isNotNull(pathSelected)){
-          this.reInitializeNode(pathSelected);
-        }
-      }
-    }
-  }
-
-  private changeNodesStates(rootNode:any, data:any){
-    for(let asset of data){
-      let state = [];
-      for(let instanceState of asset.instances){
-         this.changeInstanceState(rootNode,asset.hostname,instanceState);
-         if(!state.includes(instanceState.state)){
-          state.push(instanceState.state);
-         }
-      }
-    }
-  }
-
-
-  private changeInstanceState(rootNode,hostname,instanceState){
-    let nodes = rootNode.selectAll(['g.',hostname,' g.',instanceState.name].join(''));
-
-    if(isNotNull(nodes)){
-      this.setNewCssClass(nodes, instanceState.state);
-    }
-
-    let connectors = this.connectors[[hostname,instanceState.name].join('_')];
-    if(isNotNull(connectors)){
-      for(let connector of connectors){
-        let connectorsNodes = rootNode.selectAll(connector);
-        this.setNewCssClass(connectorsNodes, 'connectors-states '+instanceState.state);
-      }
-    }
-
-  }
-
-  private setNewCssClass(node, state){
-    if(isNotNull(node) && node._groups.length>0 && node._groups[0].length>0){
-      node.attr('data-previous-class', node.attr('class'));
-      node.attr('class', [node.attr('class'),state].join(' '));
-    }
-  }
-
-
-  private reInitializeInstanceState(rootNode,hostname,instanceState){
-    let nodes = rootNode.selectAll(['g.',hostname,' g.',instanceState.name].join(''));
-    this.reInitializeNode(nodes);
-  }
-
-  private reInitializeNode(nodes){
-    if(isNotNull(nodes)){
-      let previousClass = nodes.attr('data-previous-class');
-      if(isNotNull(previousClass)){
-        nodes.attr('class',previousClass);
-      }
-    }
-  }
-
-
-  /**************************************************************************
-  * SVG GENERIC MAP CONTROL EVENT
-  **************************************************************************/
  public healthOnClick(event:SvgGenericMapMouseEvent){
     if(isNotNull(event.node)){
       let attribute = event.node.attributes['data-id'];
