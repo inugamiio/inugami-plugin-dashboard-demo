@@ -2,7 +2,7 @@
 * 					SPECIFIC PLUGIN CSS FILE
 ***************************************************************************/
 @import "commons.health.check.map.css";
-/*@import "example.health.check.map.css";*/
+@import "example.health.check.map.css";
 
 
 .test-text-area{
@@ -22,27 +22,6 @@
     margin-top: 0em;
 }
 
-.inugami.demo.dashboard header{
-    position: absolute;
-    top:0;
-    background-color:#303030;
-    width: 100%;
-    padding: 0.5em;
-    color: #ffffff;
-    box-shadow: 0 0 1em 0 #676767;
-}
-
-.inugami.demo.dashboard header nav ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.inugami.demo.dashboard header nav ul li{
-    float: left;
-    padding: 0.5em;
-    font-size: 140%;
-}
 
 .inugami.demo.dashboard  .demo-content{
     margin-top:6em;

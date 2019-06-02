@@ -2,5 +2,95 @@
       "brett_instance-1" : ["path.hap-TO-brett-instance-1"],
       "brett_instance-2" : ["path.hap-TO-brett-instance-2"],
       "brett_instance-3" : ["path.hap-TO-brett-instance-3"],
-      "brett_instance-4" : ["path.hap-TO-brett-instance-4"]
+      "brett_instance-4" : ["path.hap-TO-brett-instance-4"],
+  
+  
+      "vmd_instance-1" : ["g.hap-To-vmd-instance-1"],
+      "vmd_instance-2" : ["g.hap-To-vmd-instance-2"],
+      "vmd_instance-3" : ["g.hap-To-vmd-instance-3"],
+      "vmd_instance-4" : ["g.hap-To-vmd-instance-4"],
+  
+      "vmd.all"        : ["g.apache-To-vmd-hap", "g.waf-To-apache", "g.internet-To-waf", "g.device-To-internet"],
+  
+
+      "vma_instance-1" : ["g.hap-To-vma-instance-1"],
+      "vma_instance-2" : ["g.hap-To-vma-instance-2"],
+      "vma.all"        : ["g.vmc-To-vma","g.vmo-To-vma-hap"],
+
+      "vmc_instance-1" : ["g.hap-To-vmc-instance-1"],
+      "vmc_instance-2" : ["g.hap-To-vmc-instance-2"],
+      "vmc.all"        : ["g.vmo-To-vmc-hap"],
+
+      "vmo.tagliata_instance-1" : ["g.hap-To-vmo-T-instance-1"],
+      "vmo.tagliata_instance-2" : ["g.hap-To-vmo-T-instance-2"],
+      "vmo.tagliata_instance-3" : ["g.hap-To-vmo-T-instance-3"],
+      "vmo.tagliata_instance-4" : ["g.hap-To-vmo-T-instance-4"],
+      
+      "vmo.vecchia_instance-1" : ["g.hap-To-vmo-V-instance-1"],
+      "vmo.vecchia_instance-2" : ["g.hap-To-vmo-V-instance-2"],
+      "vmo.vecchia_instance-3" : ["g.hap-To-vmo-V-instance-3"],
+      "vmo.vecchia_instance-4" : ["g.hap-To-vmo-V-instance-4"],
+     
+
+      "cbe.tagliata_instance-1" : ["g.vmo-To-cbe-T-instance-1"],
+      "cbe.tagliata_instance-2" : ["g.vmo-To-cbe-T-instance-2"],
+      "cbe.tagliata_instance-3" : ["g.vmo-To-cbe-T-instance-3"],
+      "cbe.tagliata_instance-4" : ["g.vmo-To-cbe-T-instance-4"],
+      
+      "cbe.vecchia_instance-1" : ["g.vmo-To-cbe-V-instance-1"],
+      "cbe.vecchia_instance-2" : ["g.vmo-To-cbe-V-instance-2"],
+      "cbe.vecchia_instance-3" : ["g.vmo-To-cbe-V-instance-3"],
+      "cbe.vecchia_instance-4" : ["g.vmo-To-cbe-V-instance-4"],
+
+
+      "miw.tagliata_instance-1" : ["g.cbe-To-miw-T-instance-1"],
+      "miw.tagliata_instance-2" : ["g.cbe-To-miw-T-instance-2"],
+      "miw.tagliata_instance-3" : ["g.cbe-To-miw-T-instance-3"],
+      "miw.tagliata_instance-4" : ["g.cbe-To-miw-T-instance-4"],
+      
+      "miw.vecchia_instance-1" : ["g.cbe-To-miw-V-instance-1"],
+      "miw.vecchia_instance-2" : ["g.cbe-To-miw-V-instance-2"],
+      "miw.vecchia_instance-3" : ["g.cbe-To-miw-V-instance-3"],
+      "miw.vecchia_instance-4" : ["g.cbe-To-miw-V-instance-4"],
+      "miw.all"                : ["g.proposal-hap-To-miw", "g.proposals-To-miw-hap"],
+      "web.miw"                : ["g.web.vsa-To-miw"],
+
+      "wdi.tagliata_instance-1" : ["g.miw-To-wdi-T-instance-1"],
+      "wdi.tagliata_instance-2" : ["g.miw-To-wdi-T-instance-2"],
+      "wdi.tagliata_instance-3" : ["g.miw-To-wdi-T-instance-3"],
+      "wdi.tagliata_instance-4" : ["g.miw-To-wdi-T-instance-4"],
+      
+      "wdi.vecchia_instance-1" : ["g.miw-To-wdi-V-instance-1"],
+      "wdi.vecchia_instance-2" : ["g.miw-To-wdi-V-instance-2"],
+      "wdi.vecchia_instance-3" : ["g.miw-To-wdi-V-instance-3"],
+      "wdi.vecchia_instance-4" : ["g.miw-To-wdi-V-instance-4"],
+      "web.wdi"                : ["g.web.miw-To-wdi"],
+
+      "mobile.oracle"     : ["g.vmo-To-mobile-oracle", "g.cbe-To-mobile-oracle"],
+      "web.oracle"        : ["g.web.vsa-To-oracle ", "g.web.vsf-To-oracle"],
+
+      "mobile.atos"       : ["g.mobile.cbe-To-atos"],
+      "mobile.atos-proxy" : ["g.mobile.atos-To-internet"],
+      "mobile.pulsar"     : ["g.mobile.wdi-To-pulsar"],
+      "web.pulsar"        : ["g.web.wdi-To-pulsar"],
+      
+      "resarail"          : ["g.mobile.pulsar-To-resarail","g.web.pulsar-To-resarail"],
+      "etoile"            : ["g.web-To-etoile", "g.mobile.pao-To-etoile", "g.web.pao-To-etoile"],
+      "mobile.crl"        : ["g.mobile.miw-To-crl"],
+      "web.crl"           : ["g.web.miw-To-crl", "g.vsf-To-crl", "g.vsa-To-crl"],
+      "mobile.pao"        : ["g.mobile.crl-To-pao"],
+      "web.pao"           : ["g.web.crl-To-pao"],
+
+      "vsf"               : ["g.vmo-To-vsf","g.vmc-To-vsf"],
+      "vsa"               : ["g.vma-To-vsa", "g.vmo-To-vsa"],
+      "watto"             : ["g.vma-To-watto"],
+      "wishes"            : ["g.vmd-To-wishes", "g.proposals-To-wishes"],
+      "proposals"         : ["g.vmd-To-proposals"],
+      "sumo"              : ["g.vmd-To-sumo"],
+      "ccl"               : ["g.vmo-To-ccl"],
+      "kck"               : ["g.ccl-To-kck"],
+      "connect"           : ["g.kck-To-connect.first","g.kck-To-connect.second","g.ios.device-To-connect.second", "g.android.device-To-connect.second","g.ios.device-To-connect.first", "g.android.device-To-connect.first"],
+      
+      "mobile.vmo.hap"    : ["g.apache-To-vmo-hap"]
+      
 }

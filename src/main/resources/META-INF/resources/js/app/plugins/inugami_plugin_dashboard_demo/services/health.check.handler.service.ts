@@ -158,10 +158,87 @@ export class HealthCheckHandlerService {
    private resolveConnectorsToChangeState(data){
       let result = [];
       if(isNotNull(data) && data.length>0){
-        
+         let size = data.length;
+         result = result.concat(this.resolveIfAllVmdKo(data,size));
+         result = result.concat(this.resolveIfAllVmaKo(data,size));
+         result = result.concat(this.resolveIfAllVmcKo(data,size));
+         result = result.concat(this.resolveIfAllMiwKo(data,size));
       }
       return result;
    }
 
-   
+
+   private resolveIfAllVmdKo(data, dataSize){
+     return this.genericResolveIfAllKo(data, dataSize,"vmd",2, 'vmd.all',['instance-1','instance-2','instance-3','instance-4']);
+   }
+   private resolveIfAllVmaKo(data, dataSize){
+      return this.genericResolveIfAllKo(data, dataSize,"vma",1, 'vma.all',['instance-1','instance-2']);
+   }
+   private resolveIfAllVmcKo(data, dataSize){
+      return this.genericResolveIfAllKo(data, dataSize,"vmc",1, 'vmc.all',['instance-1','instance-2']);
+   }
+ 
+ 
+   private resolveIfAllMiwKo(data, dataSize){
+      let result = [];
+      let miwTagliata  = null;
+      let miwVecchia   = null;
+
+      for(let i=dataSize-1; i>=0; i--){
+         let asset = data[i];
+         if(asset.hostname == "miw.vecchia"){
+            miwVecchia = asset;
+         }
+         else if(asset.hostname == "miw.tagliata"){
+            miwTagliata = asset;
+         }
+      }
+
+      if(miwTagliata != null && miwVecchia!=null){
+         if(miwTagliata.instances.length==4 && miwVecchia.instances.length==4){
+            result.push({
+               "state":"error",
+               "selectors" : this.connectors['miw.all']
+            });
+         }
+      }
+      return result;
+   }
+
+
+
+
+   private genericResolveIfAllKo(data, dataSize, assetName, warnLevel, connectorSelector ,instancetoFind){
+      let result = [];
+      let toFind = [];
+          toFind = toFind.concat(instancetoFind);
+      let currentAsset = null;
+
+      for(let i=dataSize-1; i>=0; i--){
+         let asset = data[i];
+         if(asset.hostname == assetName){
+            currentAsset = asset;
+            break;
+         }
+      }
+
+      if(isNotNull(currentAsset) && isNotNull(currentAsset.instances)){
+         for(let instance of currentAsset.instances){
+            let index = toFind.indexOf(instance.name);
+               if(index !=-1){
+                  toFind.splice(index,1);
+            }
+         }
+      }
+
+      if(toFind.length<=warnLevel){
+         let state = toFind.length==0?"error" : "warn";
+         result.push({
+            "state":state,
+            "selectors" : this.connectors[connectorSelector]
+         });
+      }
+      return result;
+   }
+
 }

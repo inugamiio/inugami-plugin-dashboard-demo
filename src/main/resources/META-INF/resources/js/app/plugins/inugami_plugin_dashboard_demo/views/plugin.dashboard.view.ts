@@ -13,6 +13,8 @@ import {SvgGenericMapMouseEvent}                      from 'js/app/components/ch
 
 // SERVICES --------------------------------------------------------------------
 import {HealthCheckHandlerService}                    from 'js/app/plugins/inugami_plugin_dashboard_demo/services/health.check.handler.service.ts';
+import {MainMenuService}                              from 'js/app/components/main_menu/main.menu.service';
+import {MainMenuLink}                                 from 'js/app/components/main_menu/main.menu.link';
 
 @Component({
     templateUrl: 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view.html',
@@ -30,8 +32,8 @@ export class PluginDashboardView implements OnInit{
   private svgMapHandler : any;
 
   public jsonQuery      : string;
-  public svgMap         : string = 'images/health_map.svg';
-  //public svgMap         : string = 'images/prep.svg';
+  //public svgMap         : string = 'images/health_map.svg';
+  public svgMap         : string = 'images/prep.svg';
   
 
   private bddInformationsBinding : any = {
@@ -153,14 +155,15 @@ export class PluginDashboardView implements OnInit{
               private router              : Router,
               private pluginsService      : PluginsService,
               private sessionScope        : SessionScope,
-              private healthCheckHandler  : HealthCheckHandlerService){
+              private healthCheckHandler  : HealthCheckHandlerService,
+              private mainMenuService  : MainMenuService){
 
       let self = this;
       org.inugami.events.addEventListener(org.inugami.sse.events.OPEN_OR_ALREADY_OPEN, function(event) {
         self.pluginsService.callPluginEventsProcessingBaseName("inugami_plugin_dashboard_demo");
         org.inugami.events.updateResize();
       });
-      this.sessionScope.closeMainMenu();
+      
 
       let buffer = [];
       buffer.push('[');
@@ -184,14 +187,23 @@ export class PluginDashboardView implements OnInit{
       
       org.inugami.sse.register("inugami_plugin_dashboard_demo",
                                   (eventFilter)=>{return  true },
-                                  (eventAlerts)=>{self.onAlerts(eventAlerts)});  
+                                  (eventAlerts)=>{self.onAlerts(eventAlerts)}); 
+      
+      this.sessionScope.openMainMenu();
+      this.mainMenuService.cleanLinks();
+      this.mainMenuService.setCurrentTitle("Demo plugin");
+      this.mainMenuService.addSubLink(new MainMenuLink("Administration", "/admin","admin",true,'admin'));
+      this.mainMenuService.addSubLink(new MainMenuLink("Plugin home", "/demo","plugin"));
+      this.mainMenuService.updateMenu();
     });
+              
+
 
   }
 
 
   public showMenu(){
-    this.sessionScope.toggleMainMenu();
+    
   }
 
   private onAlerts(alert : any){
