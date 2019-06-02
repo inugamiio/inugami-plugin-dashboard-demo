@@ -32,8 +32,8 @@ export class PluginDashboardView implements OnInit{
   private svgMapHandler : any;
 
   public jsonQuery      : string;
-  //public svgMap         : string = 'images/health_map.svg';
-  public svgMap         : string = 'images/prep.svg';
+  public svgMap         : string = 'images/health_map.svg';
+  //public svgMap         : string = 'images/prep.svg';
   
 
   private bddInformationsBinding : any = {
