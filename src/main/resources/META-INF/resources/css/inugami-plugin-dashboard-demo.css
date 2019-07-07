@@ -66,17 +66,18 @@
 * 					OVERRIDE COMPONENTS
 ***************************************************************************/
 .current_frequentation-begin{
-    stop-color:#6b6b6b;
+    stop-color:#036B91;
 }
 
 .current_frequentation-end{
     stop-color: #ffffff;
 }
 
-
-.inugami.demo.dashboard  .bar-chart .label .background{
-    fill: #a9a9a9;
+.inugami.demo.dashboard  .curve-chart .data-curves .curve{
+    stroke: #036B91;
 }
+
+
 
 .inugami.demo.dashboard  .bar-chart .masks .mask{
     fill: #ffffff;
@@ -84,9 +85,20 @@
     stroke-width: 1px;
     stroke: #ffffff;
 }
+.inugami.demo.dashboard  .services.checkout rect{
+    fill: #036B91;
+}
 
+.demo-content .label .background{
+    fill: #053b4f;
+}
+.demo-content .label .title{
+    fill: #ffffff;
+}
 
-
+.bar-chart-container svg{
+    margin-left: calc(6vh);
+}
 /***************************************************************************
 * 					 COMPONENTS
 ***************************************************************************/

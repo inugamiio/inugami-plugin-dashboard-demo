@@ -214,9 +214,8 @@ export class PluginDashboardView implements OnInit{
   * ACTION HANDLERS 
   **************************************************************************/
   public simulateError(){
-    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",
-      JSON.parse(this.jsonQuery);
-    );
+    let data = JSON.parse(this.jsonQuery)
+    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",data);
   }
 
   public simulateRollbackError(){
