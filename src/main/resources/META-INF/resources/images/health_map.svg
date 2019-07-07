@@ -25,16 +25,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1155"
+     inkscape:window-width="2789"
+     inkscape:window-height="1291"
      id="namedview8856"
      showgrid="true"
-     inkscape:zoom="0.90509668"
-     inkscape:cx="1367.8639"
-     inkscape:cy="531.4121"
-     inkscape:window-x="3043"
-     inkscape:window-y="2183"
-     inkscape:window-maximized="1"
+     inkscape:zoom="3.6203867"
+     inkscape:cx="1352.5179"
+     inkscape:cy="747.78406"
+     inkscape:window-x="730"
+     inkscape:window-y="613"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -2618,7 +2618,7 @@
        sodipodi:nodetypes="cc"
        class="path-connector" />
     <path
-       class="hap-TO-brett-instance-1 path-connector"
+       class="hap-TO-brett-instance-1 path-connector big"
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path1879"
@@ -3081,9 +3081,9 @@
        id="path2001"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc"
-       class="hap-TO-brett-instance-2 path-connector" />
+       class="hap-TO-brett-instance-2 path-connector big" />
     <path
-       class="hap-TO-brett-instance-3 path-connector"
+       class="hap-TO-brett-instance-3 path-connector big"
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path2003"
@@ -3095,7 +3095,7 @@
        id="path2005"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc"
-       class="hap-TO-brett-instance-4 path-connector" />
+       class="hap-TO-brett-instance-4 path-connector big" />
     <g
        id="g1999"
        class="hap2 bdd"
