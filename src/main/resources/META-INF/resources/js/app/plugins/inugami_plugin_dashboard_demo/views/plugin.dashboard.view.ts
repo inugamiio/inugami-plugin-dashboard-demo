@@ -206,6 +206,19 @@ export class PluginDashboardView implements OnInit{
     
   }
 
+  public closeInformationPanel(){
+    this.selectedElement=null;
+  }
+
+  public getInformationPanelClass(){
+    let classes = ['information-panel'];
+    if(isNotNull(this.selectedElement)){
+      classes.push('panel-open');
+    }else{
+      classes.push('panel-close');
+    }
+    return classes.join(' ');
+  }
   private onAlerts(alert : any){
     console.log(alert);
   }
