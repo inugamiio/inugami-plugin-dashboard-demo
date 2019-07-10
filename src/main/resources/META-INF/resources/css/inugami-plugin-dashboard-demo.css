@@ -14,6 +14,9 @@
 /***************************************************************************
 * 					LAYOUT
 ***************************************************************************/
+body.inugami.demo.dashboard{
+    overflow: hidden;
+}
 .inugami.demo.dashboard {
     background-color:#eeeeec;
 }
@@ -112,3 +115,59 @@
    overflow: hidden;
 }
 
+.information-panel{
+    position: absolute;
+    top: 2em;
+    width: 22em;
+    height: calc(97.5vh);
+    background: black;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 2em;
+    right: -23em;
+    -webkit-transition: right 0.25s linear;
+    -moz-transition: right 0.25s linear;
+    -ms-transition: right 0.25s linear;
+    -o-transition: right 0.25s linear;
+    transition:  right 0.25s linear;
+}
+
+
+.information-panel.panel-open{
+    right: 0em;
+}
+.information-panel header a,
+.information-panel header h3{
+    float: left;
+}
+
+
+.information-panel header a{
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+}
+
+.information-panel dl{
+    margin-left: 1em;
+}
+
+.information-panel dl dt,
+.information-panel dl dd{
+    float: left;
+}
+.information-panel dl dt{
+    clear: both;
+}
+
+.information-panel dl dt{
+    min-width: 8em;
+}
+.information-panel dl dd{
+
+}
+
+.information-panel dd ul{
+    margin: 0;
+    padding: 0em;
+    margin-left: 1em;
+}
