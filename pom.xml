@@ -116,6 +116,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.inugami.plugins</groupId>
+            <artifactId>inugami-plugin-kafka</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
 
 
         <dependency>
