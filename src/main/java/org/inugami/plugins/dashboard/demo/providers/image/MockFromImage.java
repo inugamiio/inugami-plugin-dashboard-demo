@@ -42,8 +42,8 @@ import org.inugami.api.providers.concurrent.FutureDataBuilder;
 import org.inugami.api.providers.task.ProviderFutureResult;
 import org.inugami.api.providers.task.ProviderFutureResultBuilder;
 import org.inugami.api.tools.CalendarTools;
+import org.inugami.commons.providers.MockJsonHelper;
 import org.inugami.core.providers.graphite.GraphiteProvider;
-import org.inugami.core.providers.mock.MockJsonHelper;
 
 public class MockFromImage implements Provider {
     

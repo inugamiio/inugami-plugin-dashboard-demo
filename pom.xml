@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.inugami.maven.superpom</groupId>
         <artifactId>inugami-superpom-plugin</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.2.0</version>
     </parent>
 
     <!-- =======================================================================
@@ -28,8 +28,7 @@
         <super.inugami.plugin />
         <super.inugami.plugin.attach.war />
         <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
-        <super.inugami.version>1.1.1-SNAPSHOT</super.inugami.version>
-
+        <super.inugami.version>1.2.0</super.inugami.version>
         <jaxb.version>2.3.0</jaxb.version>
 
         <!-- specify in your maven settings.xml inugami server path :
@@ -116,6 +115,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.inugami.plugins</groupId>
+            <artifactId>inugami-plugin-kafka</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
 
         <dependency>
