@@ -17,7 +17,7 @@
     <groupId>org.inugami.plugins</groupId>
     <artifactId>inugami-plugin-dashboard-demo</artifactId>
     <packaging>jar</packaging>
-    <version>1.2.0</version>
+    <version>1.2.1-SNAPSHOT</version>
 
     <!-- =======================================================================
     = PROPERTIES
@@ -44,7 +44,7 @@
         <url>https://github.com/inugamiio/inugami-plugin-dashboard-demo</url>
         <connection>scm:git:git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</connection>
         <developerConnection>scm:git:git@github.com:inugamiio/inugami-plugin-dashboard-demo.git</developerConnection>
-        <tag>v1.2.0</tag>
+        <tag>v0.0.0</tag>
     </scm>
 
     <distributionManagement>
