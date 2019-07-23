@@ -39,6 +39,10 @@
     =   PROVIDERS
     =========================================================================-->
     <providers>
+
+        <provider name="kafka" className="{{kafkaProvider}}">
+        </provider>
+        
         <provider name="dataProvider" className="{{mockJsonProvider}}">
             <config key="max_thread" value="20" />
             <config key="random" value="false" />
@@ -51,6 +55,7 @@
             <config key="images.1" value="/META-INF/mock/frequentation.png" />
             <config key="images.2" value="/META-INF/mock/services-checkout.png" />
         </provider>
+
     </providers>
  
 

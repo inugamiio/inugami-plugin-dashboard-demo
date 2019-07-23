@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.inugami.maven.superpom</groupId>
         <artifactId>inugami-superpom-plugin</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.2.0</version>
     </parent>
 
     <!-- =======================================================================
@@ -20,7 +20,6 @@
     <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-
     <!-- =======================================================================
     = PROPERTIES
     ======================================================================== -->
@@ -29,7 +28,9 @@
         <super.inugami.plugin />
         <super.inugami.plugin.attach.war />
         <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
-        <super.inugami.version>1.0.1-SNAPSHOT</super.inugami.version>
+        <super.inugami.version>1.2.0</super.inugami.version>
+        <jaxb.version>2.3.0</jaxb.version>
+
         <!-- specify in your maven settings.xml inugami server path :
         <super.inugami.server.home>/home/user/servers/inugami</super.inugami.server.home>
         -->
@@ -89,6 +90,24 @@
     = DEPENDENCIES
     ======================================================================== -->
     <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>${jaxb.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.inugami.security</groupId>
@@ -96,6 +115,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.inugami.plugins</groupId>
+            <artifactId>inugami-plugin-kafka</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
 
         <dependency>

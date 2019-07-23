@@ -32,8 +32,8 @@ export class PluginDashboardView implements OnInit{
   private svgMapHandler : any;
 
   public jsonQuery      : string;
-  //public svgMap         : string = 'images/health_map.svg';
-  public svgMap         : string = 'images/prep.svg';
+  public svgMap         : string = 'images/health_map.svg';
+  //public svgMap         : string = 'images/prep.svg';
   
 
   private bddInformationsBinding : any = {
@@ -164,6 +164,14 @@ export class PluginDashboardView implements OnInit{
         org.inugami.events.updateResize();
       });
       
+      org.inugami.events.addEventListenerByPlugin("inugami_plugin_dashboard_demo", "frequentation", function(event) {
+        if(isNotNull(event.detail.data)){
+          localStorage.setItem("inugami_plugin_dashboard_demo_frequentation",JSON.stringify(event.detail.data));
+        }
+        
+      });
+
+
 
       let buffer = [];
       buffer.push('[');
@@ -195,6 +203,15 @@ export class PluginDashboardView implements OnInit{
       this.mainMenuService.addSubLink(new MainMenuLink("Administration", "/admin","admin",true,'admin'));
       this.mainMenuService.addSubLink(new MainMenuLink("Plugin home", "/demo","plugin"));
       this.mainMenuService.updateMenu();
+
+
+      setTimeout(function(){
+        let data = localStorage.getItem("inugami_plugin_dashboard_demo_frequentation");
+        if(isNotNull(data)){
+          let eventData = JSON.parse(data);
+          org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","frequentation",eventData.values);
+        }
+      },3000);
     });
               
 
@@ -206,6 +223,19 @@ export class PluginDashboardView implements OnInit{
     
   }
 
+  public closeInformationPanel(){
+    this.selectedElement=null;
+  }
+
+  public getInformationPanelClass(){
+    let classes = ['information-panel'];
+    if(isNotNull(this.selectedElement)){
+      classes.push('panel-open');
+    }else{
+      classes.push('panel-close');
+    }
+    return classes.join(' ');
+  }
   private onAlerts(alert : any){
     console.log(alert);
   }
@@ -214,9 +244,8 @@ export class PluginDashboardView implements OnInit{
   * ACTION HANDLERS 
   **************************************************************************/
   public simulateError(){
-    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",
-      JSON.parse(this.jsonQuery);
-    );
+    let data = JSON.parse(this.jsonQuery)
+    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",data);
   }
 
   public simulateRollbackError(){

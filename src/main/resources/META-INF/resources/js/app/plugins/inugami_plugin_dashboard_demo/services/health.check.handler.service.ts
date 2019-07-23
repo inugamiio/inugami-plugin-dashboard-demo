@@ -19,10 +19,12 @@ export class HealthCheckHandlerService {
    }
 
    public initializeData(){
+
       this.httpSerivce.get(CONTEXT_PATH+"rest/plugins/inugami-plugin-dashboard-demo/healthCheckData")
                       .then(data =>{
                         this.connectors = data;
                       });
+         
    }
    /**************************************************************************
    * INCOMMING DATA
