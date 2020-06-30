@@ -16,13 +16,15 @@
  */
 package org.inugami.plugins.dashboard.demo.providers.image;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
 import org.inugami.api.functionnals.FunctionMustThrow;
 import org.inugami.commons.tools.TestUnitResources;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MockFromImageTest implements FunctionMustThrow, TestUnitResources {
     
@@ -33,9 +35,8 @@ public class MockFromImageTest implements FunctionMustThrow, TestUnitResources {
     public void testResolveTargetName() throws Exception {
         final MockFromImage provider = new MockFromImage();
         
-        assertEquals("my-image", provider.resolveTargetName("/META-INF/mock/my.image.png"));
-        assertEquals("system-my-image", provider.resolveTargetName("/META-INF/mock/system/my.image.gif"));
-        
+        assertThat(provider.resolveTargetName("/META-INF/mock/system/my.image.gif")).isEqualTo("system-my-image");
+
         mustThrow(() -> provider.resolveTargetName("/system/my.image.gif"));
         
     }
