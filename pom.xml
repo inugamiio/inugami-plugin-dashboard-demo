@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.inugami.maven.superpom</groupId>
         <artifactId>inugami-superpom-plugin</artifactId>
-        <version>1.2.0</version>
+        <version>1.3.3</version>
     </parent>
 
     <!-- =======================================================================
@@ -27,9 +27,10 @@
         <super.inugami.plugin />
         <super.inugami.plugin.attach.war />
         <super.inugami.server.force.clean>true</super.inugami.server.force.clean>
-        <super.inugami.version>1.2.0</super.inugami.version>
         <jaxb.version>2.3.0</jaxb.version>
 
+        <super.test.mutations />
+        <super.test.mutations.package>org.inugami.plugins.dashboard.demo.providers.*</super.test.mutations.package>
         <!-- specify in your maven settings.xml inugami server path :
         <super.inugami.server.home>/home/user/servers/inugami</super.inugami.server.home>
         -->
@@ -128,10 +129,23 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
