@@ -8,15 +8,15 @@ import {ReactiveFormsModule}            from '@angular/forms';
 import {FormsModule}                    from '@angular/forms';
 
 // INUGAMI CORE ----------------------------------------------------------------
-import {AppRootModule}                  from 'js/app/app.root.module.ts';
+import {AppRootModule}                  from 'js/app/app.root.module';
 
 
 
 // SERVICES --------------------------------------------------------------------
 
 // VIEWS -----------------------------------------------------------------------
-import {PluginHomeView}                 from 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.home.view.ts';
-import {PluginDashboardView}            from 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view.ts';
+import {PluginHomeView}                 from 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.home.view';
+import {PluginDashboardView}            from 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view';
 
 // COMPO --------------------------------------------------------------------
 

@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.inugami.plugins.dashboard.demo.providers.image;
+package io.inugami.plugins.dashboard.demo.providers.image;
 
-import org.inugami.api.exceptions.FatalException;
+import io.inugami.api.exceptions.FatalException;
 
 public class MockFromImageFatalException extends FatalException {
     

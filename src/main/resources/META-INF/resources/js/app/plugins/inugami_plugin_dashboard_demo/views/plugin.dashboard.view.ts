@@ -3,21 +3,21 @@ import {Component, OnInit}                            from '@angular/core';
 import {ActivatedRoute,Router}                        from '@angular/router';
 
 // INUGAMI COMPONENT -----------------------------------------------------------
-import {SessionScope}                                 from 'js/app/scopes/session.scope.ts';
-import {PluginsService}                               from 'js/app/services/plugins.service.ts';
-import {CurveChart}                                   from 'js/app/components/charts/curve_chart/curve.chart.ts';
-import {Bloc}                                         from 'js/app/components/display/bloc/bloc.ts';
-import {SvgGenericMap}                                from 'js/app/components/charts/svg_generic_map/svg.generic.map.ts';
-import {SvgGenericMapEventIncomming}                  from 'js/app/components/charts/svg_generic_map/svg.generic.map.event.incomming.ts';
+import {SessionScope}                                 from 'js/app/scopes/session.scope';
+import {PluginsService}                               from 'js/app/services/plugins.service';
+import {CurveChart}                                   from 'js/app/components/charts/curve_chart/curve.chart';
+import {Bloc}                                         from 'js/app/components/display/bloc/bloc';
+import {SvgGenericMap}                                from 'js/app/components/charts/svg_generic_map/svg.generic.map';
+import {SvgGenericMapEventIncomming}                  from 'js/app/components/charts/svg_generic_map/svg.generic.map.event.incomming';
 import {SvgGenericMapMouseEvent}                      from 'js/app/components/charts/svg_generic_map/svg.generic.map.mouse.event';
 
 // SERVICES --------------------------------------------------------------------
-import {HealthCheckHandlerService}                    from 'js/app/plugins/inugami_plugin_dashboard_demo/services/health.check.handler.service.ts';
+import {HealthCheckHandlerService}                    from 'js/app/plugins/inugami_plugin_dashboard_demo/services/health.check.handler.service';
 import {MainMenuService}                              from 'js/app/components/main_menu/main.menu.service';
 import {MainMenuLink}                                 from 'js/app/components/main_menu/main.menu.link';
 
 @Component({
-    templateUrl: 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.dashboard.view.html',
+    templateUrl: 'plugin.dashboard.view.html',
     directives : [
       CurveChart,Bloc,SvgGenericMap
     ],
@@ -159,12 +159,12 @@ export class PluginDashboardView implements OnInit{
               private mainMenuService  : MainMenuService){
 
       let self = this;
-      org.inugami.events.addEventListener(org.inugami.sse.events.OPEN_OR_ALREADY_OPEN, function(event) {
+      io.inugami.events.addEventListener(io.inugami.sse.events.OPEN_OR_ALREADY_OPEN, function(event) {
         self.pluginsService.callPluginEventsProcessingBaseName("inugami_plugin_dashboard_demo");
-        org.inugami.events.updateResize();
+        io.inugami.events.updateResize();
       });
       
-      org.inugami.events.addEventListenerByPlugin("inugami_plugin_dashboard_demo", "frequentation", function(event) {
+      io.inugami.events.addEventListenerByPlugin("inugami_plugin_dashboard_demo", "frequentation", function(event) {
         if(isNotNull(event.detail.data)){
           localStorage.setItem("inugami_plugin_dashboard_demo_frequentation",JSON.stringify(event.detail.data));
         }
@@ -193,7 +193,7 @@ export class PluginDashboardView implements OnInit{
     let self =this;
     this.route.params.subscribe(params => {
       
-      org.inugami.sse.register("inugami_plugin_dashboard_demo",
+      io.inugami.sse.register("inugami_plugin_dashboard_demo",
                                   (eventFilter)=>{return  true },
                                   (eventAlerts)=>{self.onAlerts(eventAlerts)}); 
       
@@ -209,7 +209,7 @@ export class PluginDashboardView implements OnInit{
         let data = localStorage.getItem("inugami_plugin_dashboard_demo_frequentation");
         if(isNotNull(data)){
           let eventData = JSON.parse(data);
-          org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","frequentation",eventData.values);
+          io.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","frequentation",eventData.values);
         }
       },3000);
     });
@@ -245,11 +245,11 @@ export class PluginDashboardView implements OnInit{
   **************************************************************************/
   public simulateError(){
     let data = JSON.parse(this.jsonQuery)
-    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",data);
+    io.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check",data);
   }
 
   public simulateRollbackError(){
-    org.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check");
+    io.inugami.events.fireEventPlugin("inugami_plugin_dashboard_demo","health-check");
   }
 
 

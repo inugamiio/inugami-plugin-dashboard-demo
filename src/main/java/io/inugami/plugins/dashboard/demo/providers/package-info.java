@@ -14,22 +14,10 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.inugami.plugins.dashboard.demo.providers;
-
-import java.util.Map;
-
-import org.inugami.api.spi.PropertiesProducerSpi;
-import org.inugami.plugins.dashboard.demo.providers.image.MockFromImage;
-
-public class PluginProviderRefencesSpi implements PropertiesProducerSpi {
-    @Override
-    public Map<String, String> produce() {
-        //@formatter:off
-        return producerFromClasses(
-                   //providers
-                   MockFromImage.class
-                 
-        );
-        //@formatter:on
-    }
-}
+/**
+ * In Inugami plugin we can create some providers for grab data. All providers
+ * must implement Provider interface
+ * 
+ * @see io.inugami.api.providers.Provider
+ */
+package io.inugami.plugins.dashboard.demo.providers;

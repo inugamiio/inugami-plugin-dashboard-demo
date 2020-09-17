@@ -1,4 +1,4 @@
-package org.inugami.plugins.dashboard.demo.rest;
+package io.inugami.plugins.dashboard.demo.rest;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,11 +10,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.inugami.api.loggers.Loggers;
-import org.inugami.commons.files.FilesUtils;
-import org.inugami.configuration.models.plugins.Plugin;
-import org.inugami.core.context.ApplicationContext;
-import org.inugami.core.security.commons.roles.UserConnected;
+import io.inugami.api.loggers.Loggers;
+import io.inugami.commons.files.FilesUtils;
+import io.inugami.configuration.models.plugins.Plugin;
+import io.inugami.core.context.ApplicationContext;
+import io.inugami.core.security.commons.roles.UserConnected;
 
 @Path("plugins/inugami-plugin-dashboard-demo/healthCheckData")
 public class HealthCheckDataRest {
@@ -60,7 +60,7 @@ public class HealthCheckDataRest {
     
     private String resolveFromWorkspace(final String fileName) throws IOException {
         String result = null;
-        final Plugin currentPlugin = context.getPlugin("org.inugami.plugins", "inugami-plugin-dashboard-demo");
+        final Plugin currentPlugin = context.getPlugin("io.inugami.plugins", "inugami-plugin-dashboard-demo");
         
         //@formatter:off
         if ((currentPlugin != null) && (currentPlugin.getManifest() != null)  && (currentPlugin.getManifest().getWorkspace() != null)) {

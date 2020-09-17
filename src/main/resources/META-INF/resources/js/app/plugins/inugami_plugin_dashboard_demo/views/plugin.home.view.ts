@@ -1,12 +1,12 @@
 // ANGULAR CORE MODULES --------------------------------------------------------
 import {Component, OnInit}                     from '@angular/core';
-import {SessionScope}                          from 'js/app/scopes/session.scope.ts';
+import {SessionScope}                          from 'js/app/scopes/session.scope';
 import {Msg}                                   from 'js/app/components/msg/msg';
 import {MainMenuService}                       from 'js/app/components/main_menu/main.menu.service';
 import {MainMenuLink}                          from 'js/app/components/main_menu/main.menu.link';
 // SERVICES --------------------------------------------------------------------
 @Component({
-    templateUrl: 'js/app/plugins/inugami_plugin_dashboard_demo/views/plugin.home.view.html',
+    templateUrl: 'plugin.home.view.html',
     directives : [
         Msg
     ]
