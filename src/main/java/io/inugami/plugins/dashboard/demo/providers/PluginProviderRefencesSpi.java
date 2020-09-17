@@ -14,7 +14,22 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- * This package contains all JAX-RS rest services of this plugin
- */
-package org.inugami.plugins.dashboard.demo.rest;
+package io.inugami.plugins.dashboard.demo.providers;
+
+import java.util.Map;
+
+import io.inugami.api.spi.PropertiesProducerSpi;
+import io.inugami.plugins.dashboard.demo.providers.image.MockFromImage;
+
+public class PluginProviderRefencesSpi implements PropertiesProducerSpi {
+    @Override
+    public Map<String, String> produce() {
+        //@formatter:off
+        return producerFromClasses(
+                   //providers
+                   MockFromImage.class
+                 
+        );
+        //@formatter:on
+    }
+}

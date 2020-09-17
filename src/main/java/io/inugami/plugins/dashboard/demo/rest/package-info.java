@@ -15,9 +15,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * In Inugami plugin we can create some providers for grab data. All providers
- * must implement Provider interface
- * 
- * @see org.inugami.api.providers.Provider
+ * This package contains all JAX-RS rest services of this plugin
  */
-package org.inugami.plugins.dashboard.demo.providers;
+package io.inugami.plugins.dashboard.demo.rest;

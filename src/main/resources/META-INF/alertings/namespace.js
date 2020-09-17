@@ -1,4 +1,4 @@
-var org               = org || {};
-    org.inugami       = org.inugami|| {};
-    org.inugami.demo  = {}
+var io               = io || {};
+    io.inugami       = io.inugami|| {};
+    io.inugami.demo  = {}
 

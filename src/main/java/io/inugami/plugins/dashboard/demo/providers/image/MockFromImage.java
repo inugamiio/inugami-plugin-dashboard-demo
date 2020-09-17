@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.inugami.plugins.dashboard.demo.providers.image;
+package io.inugami.plugins.dashboard.demo.providers.image;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -26,24 +26,24 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-import org.inugami.api.exceptions.Asserts;
-import org.inugami.api.exceptions.services.ProviderException;
-import org.inugami.api.loggers.Loggers;
-import org.inugami.api.models.Gav;
-import org.inugami.api.models.data.graphite.GraphiteTarget;
-import org.inugami.api.models.data.graphite.GraphiteTargets;
-import org.inugami.api.models.events.SimpleEvent;
-import org.inugami.api.processors.ClassBehavior;
-import org.inugami.api.processors.ConfigHandler;
-import org.inugami.api.providers.Provider;
-import org.inugami.api.providers.ProviderRunner;
-import org.inugami.api.providers.concurrent.FutureData;
-import org.inugami.api.providers.concurrent.FutureDataBuilder;
-import org.inugami.api.providers.task.ProviderFutureResult;
-import org.inugami.api.providers.task.ProviderFutureResultBuilder;
-import org.inugami.api.tools.CalendarTools;
-import org.inugami.commons.providers.MockJsonHelper;
-import org.inugami.core.providers.graphite.GraphiteProvider;
+import io.inugami.api.exceptions.Asserts;
+import io.inugami.api.exceptions.services.ProviderException;
+import io.inugami.api.loggers.Loggers;
+import io.inugami.api.models.Gav;
+import io.inugami.api.models.data.graphite.GraphiteTarget;
+import io.inugami.api.models.data.graphite.GraphiteTargets;
+import io.inugami.api.models.events.SimpleEvent;
+import io.inugami.api.processors.ClassBehavior;
+import io.inugami.api.processors.ConfigHandler;
+import io.inugami.api.providers.Provider;
+import io.inugami.api.providers.ProviderRunner;
+import io.inugami.api.providers.concurrent.FutureData;
+import io.inugami.api.providers.concurrent.FutureDataBuilder;
+import io.inugami.api.providers.task.ProviderFutureResult;
+import io.inugami.api.providers.task.ProviderFutureResultBuilder;
+import io.inugami.api.tools.CalendarTools;
+import io.inugami.commons.providers.MockJsonHelper;
+import io.inugami.core.providers.graphite.GraphiteProvider;
 
 public class MockFromImage implements Provider {
     
